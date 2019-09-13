@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    /*
+        1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100
+    */
+
+    var i = 2
+    while(i <= 100) {
+        var j = 2;
+        var isPrime = true
+        while(j*j <= i) {
+            if(i % j === 0) {
+                isPrime = false
+                break
+            }
+            j++
+        }
+        if (isPrime) console.log(i)
+        i++
+    }
+
+    /*
+        2. С этого урока начинаем работать с функционалом интернет-магазина. Предположим, есть сущность корзины. Нужно
+        реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.
+    */
+
+    function sum(basket) {
+        var result = 0
+        for(var good of basket) {
+            result += good
+        }
+        return result
+    }
+
+    /*
+        3. Товары в корзине хранятся в массиве. Задачи:
+        a) Организовать такой массив для хранения товаров в корзине;
+        b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
+    */
+
+    var basket = [5, 10, 15, 20]
+    function countBasketPrice(basket) {
+        var result = 0
+        for(var price of basket) {
+            result += price
+        }
+        return result
+    }
+    console.log(countBasketPrice(basket))
+
+    /*
+        4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла. Выглядеть это должно так:
+        for(…){// здесь пусто}
+    */
+
+    for(var i=0; i<=9; console.log(i++)){}
+
+    /*
+        4) *Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20
+        рядов, а не 5:
+        x
+        xx
+        xxx
+        xxxx
+        xxxxx
+    */
+
+    for(var line = 'x'; line.length <= 20; line += 'x') {
+        console.log(line)
+    }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
