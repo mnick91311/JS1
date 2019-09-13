@@ -1,0 +1,63 @@
+html {
+    font-size: 14pt;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: 3em min-content 3em;
+    user-select: none;
+}
+
+#field {
+    display: grid;
+    grid-template-columns: repeat(8, 3em);
+    grid-template-rows: repeat(8, 3em);
+    border: 1px solid #000;
+}
+
+.headings {
+    display: grid;
+    grid-auto-columns: 3em;
+    grid-auto-rows: 3em;
+    align-items: center;
+}
+
+.headings {
+    display: grid;
+    text-align: center;
+}
+
+.headings_horizontal {
+    grid-template-columns: repeat(8, 3em);
+    grid-column: 2 / -1;
+}
+
+.headings_veertical {
+    display: inline-grid;
+}
+
+.headings_reverse span {
+    transform: rotate(180deg);
+}
+
+.cell {
+    position: relative;
+}
+
+.cell__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.75em;
+    color: #aaa;
+    padding: 2px;
+
+}
+
+.cell_white {
+    background: #fff;
+}
+
+.cell_black {
+    background-color: #333;
+}
