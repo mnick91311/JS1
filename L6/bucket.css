@@ -1,0 +1,48 @@
+.bucket .empty {
+    display: none;
+}
+
+.bucket.empty > table {
+    display: none;
+}
+
+.bucket table thead,
+.bucket table tfoot {
+    font-weight: bold;
+    border: 1px solid #999;
+}
+
+.bucket table {
+    border-collapse: collapse;
+}
+
+.bucket table td {
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+}
+
+.bucket table tbody tr:nth-child(odd) {
+    background-color: #ccc;
+}
+
+.bucket.empty .empty {
+    display: block;
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.catalog .product {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    text-align: center;
+}
+
+.catalog .product button {
+    height: 3rem;
+}
