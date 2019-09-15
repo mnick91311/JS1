@@ -1,0 +1,24 @@
+.game_snake .field {
+    display: grid;
+    grid-template-columns: repeat(var(--field-width, 5), 1rem);
+    grid-gap: 1px;
+}
+
+.game_snake .cell {
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    background-color: #333;
+}
+
+.game_snake .cell_snake-body {
+    background-color: #eee;
+}
+
+.game_snake .cell_food {
+    background-color: orange;
+}
+
+.game_snake .cell_bomb {
+    background-color: red;
+}
