@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="snake.css">
+    <script src="snake.js" defer></script>
+    <script>
+        /*
+        2. Не выполняя кода, ответить, что выведет браузер и почему:
+
+        if (!("a" in window)) { // Если `a` нет в голобальной области видимости
+            var a = 1;          // объявляем `a` в локальной области видимости и присваиваем значение `1`
+        }
+        alert(a);               // `a` = `undefined`
+
+        var b = function a(x) { // Объявлеяем и присваиваем переменной `b` именнованное функциональное выражение `a`,
+                                // Имя(`a`) именнованного функционального выражения доступно только внутри функции
+            x && a(--x);        // Если результат приведения `x` в булевый тип `true`, вызываем `a`
+        };
+        alert(a);               // `a` = `undefined`
+
+        function a(x) {         // Объявлеем в глобальной области функцию `a`
+            return x * 2;
+        }
+        var a;                  // Объявляем переменную `a`
+        alert(a);               // `а` = `function a(){...}`
+
+        function b(x, y, a) {   // Объявляем функцию `b`
+            arguments[2] = 10;  // Присваиваем 3-у аргументу (`a`) значение `10`
+            alert(a);           // `a` = `10`
+        }
+        b(1, 2, 3);             // Вызываем функцию `b`, передав в нее значения `1`,`2` и `3`
+
+        function a() {          // Объявляем функцию `a`
+            alert(this);        // Выводим контекстный объект в котором выполняется данная функцию
+        }
+        a.call(null);           // Вызываем функцию `a` в качестве контекста указав `null`, выведет объект `window`
+
+        */
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="snake-game" class="game game_snake"></div>
+    </div>
+</body>
+</html>
