@@ -104,13 +104,13 @@ function SnakeGame(root, conf) {
         var h = this.conf.height
         var j = (this.field.length + Math.floor(i / w) * w + (w + i + d) % w + Math.floor(Math.abs(d) / w) * d) % this.field.length
         var next = this.field[j]
-        if (next.classList.contains('cell_food')) {
+        if (isFood(next)) {
             next.classList.add('cell_snake-body')
             this.snake.unshift(next)
             next.classList.remove('cell_food')
             this.score += 100
             this.scoreNode.innerHTML = this.score
-        } else if (next.classList.contains('cell_bomb') || next.classList.contains('cell_snake-body')) {
+        } else if (isBomb(next) || isSnake(next)) {
             this.stop()
             alert("Game Over!\nВаш счет:\n" + this.score)
             this.reset()
@@ -121,9 +121,18 @@ function SnakeGame(root, conf) {
         }
     }
 
-    this.placeFood = function() {
-        this.randEmptyCell().classList.add('cell_food')
+    // Closure
+
+    function check(value) {
+        let className = 'cell_'+value
+        return function(target) {
+            return target.classList.contains(className)
+        }
     }
+
+    const isFood = check('food')
+    const isBomb = check('bomb')
+    const isSnake = check('snake-body')
 
     this.randCell = function() {
         return this.field[Math.floor(Math.random() * this.field.length)]
@@ -137,9 +146,16 @@ function SnakeGame(root, conf) {
         return cell
     }
 
-    this.placeBomb = function () {
-        this.randEmptyCell().classList.add('cell_bomb')
+    // Closure
+
+    function placeSmth(name) {
+        return function() {
+            this.randEmptyCell().classList.add('cell_'+name)
+        }
     }
+
+    this.placeFood = placeSmth('food')
+    this.placeBomb = placeSmth('bomb')
 
     this.init()
     this.root.addEventListener('click', this, true)
